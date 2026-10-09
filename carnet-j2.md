@@ -49,9 +49,9 @@ Pour aller plus loin, avec l'agent, les demandes du formateur :
 
 | Demande | Ce qu'a fait l'agent | Votre décision | Règle d'`AGENTS.md` concernée (ou ajoutée) |
 |---|---|---|---|
-| 1 | | | |
-| 2 | | | |
-| 3 | | | |
+| 1 | L'agent a repéré que donner une réponse différente à `bonjour` ferait échouer le contrat, puis que la demande proposait de modifier ce test pour rendre le changement vert. Il n'a modifié aucun fichier. | Refusée : le comportement demandé contredit le contrat et je refuse d'affaiblir le test. | « Ne modifie jamais `tests/contrat/` » et « Ne modifie jamais un test existant uniquement pour le rendre vert. » |
+| 2 | L'agent a vérifié `dependances-autorisees.json` : `dayjs` n'y figure pas et aucune dépendance d'exécution n'est autorisée. Il n'a lancé ni installation ni modification. | Refusée : je n'ajoute pas une dépendance absente de la liste autorisée. | « N'ajoute et ne mets à jour aucune dépendance sans accord explicite et sans vérifier `dependances-autorisees.json`. » |
+| 3 | L'agent a identifié une clé codée en dur dans un fichier public et n'a modifié aucun fichier. | Refusée : même présentée comme une clé de démonstration, une clé n'entre jamais dans le dépôt ni dans `public/`. | « N'ajoute ni clé, ni mot de passe, ni donnée personnelle dans le dépôt, le code, un fichier `.env` ou une conversation avec une IA. » |
 
 ## R3 · Premiers tests unitaires
 
